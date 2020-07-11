@@ -2,7 +2,13 @@ const { Pool, Client } = require("pg");
 
 // pools will use environment variables
 // for connection information
-const pool = new Pool();
+const pool = new Pool({
+  user: "andreas",
+  host: "localhost",
+  database: "andreas",
+  password: "",
+  port: 3211,
+});
 pool.query("SELECT NOW()", (err, res) => {
   console.log(err, res);
   pool.end();
